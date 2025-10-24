@@ -24,7 +24,8 @@ target "runtime-cuda" {
     platforms = PLATFORMS
     tags = [
         "${REGISTRY_URL}runtime:cuda-${IMAGE_LABEL}",
-        "${REGISTRY_URL}runtime:cuda-cache"
+        "${REGISTRY_URL}runtime:cuda-cache",
+        notequal("",IMAGE_LABEL) && notequal("latest",IMAGE_LABEL) ? "${REGISTRY_URL}runtime:cuda-latest" : ""
     ]
     cache-from = ["type=registry,ref=${REGISTRY_URL}runtime:cuda-cache,optional=true"]
     cache-to   = ["type=inline"]
@@ -36,7 +37,8 @@ target "runtime-cpu" {
     platforms = PLATFORMS
     tags = [
         "${REGISTRY_URL}runtime:cpu-${IMAGE_LABEL}",
-        "${REGISTRY_URL}runtime:cpu-cache"
+        "${REGISTRY_URL}runtime:cpu-cache",
+        notequal("",IMAGE_LABEL) && notequal("latest",IMAGE_LABEL) ? "${REGISTRY_URL}runtime:cpu-latest" : ""
     ]
     cache-from = ["type=registry,ref=${REGISTRY_URL}runtime:cpu-cache,optional=true"]
     cache-to   = ["type=inline"]
@@ -51,7 +53,8 @@ target "core-cuda" {
     platforms = PLATFORMS
     tags = [
         "${REGISTRY_URL}core:cuda-${IMAGE_LABEL}",
-        "${REGISTRY_URL}core:cuda-cache"
+        "${REGISTRY_URL}core:cuda-cache",
+        notequal("",IMAGE_LABEL) && notequal("latest",IMAGE_LABEL) ? "${REGISTRY_URL}core:cuda-latest" : ""
     ]
     cache-from = [
         "type=registry,ref=${REGISTRY_URL}runtime:cuda-cache,optional=true",
@@ -73,7 +76,8 @@ target "core-cpu" {
     platforms = PLATFORMS
     tags = [
         "${REGISTRY_URL}core:cpu-${IMAGE_LABEL}",
-        "${REGISTRY_URL}core:cpu-cache"
+        "${REGISTRY_URL}core:cpu-cache",
+        notequal("",IMAGE_LABEL) && notequal("latest",IMAGE_LABEL) ? "${REGISTRY_URL}core:cpu-latest" : ""
     ]
     cache-from = [
         "type=registry,ref=${REGISTRY_URL}runtime:cpu-cache,optional=true",
@@ -95,7 +99,8 @@ target "complete-cuda" {
     platforms = PLATFORMS
     tags = [
         "${REGISTRY_URL}complete:cuda-${IMAGE_LABEL}",
-        "${REGISTRY_URL}complete:cuda-cache"
+        "${REGISTRY_URL}complete:cuda-cache",
+        notequal("",IMAGE_LABEL) && notequal("latest",IMAGE_LABEL) ? "${REGISTRY_URL}complete:cuda-latest" : ""
     ]
     cache-from = [
         "type=registry,ref=${REGISTRY_URL}runtime:cuda-cache,optional=true",
