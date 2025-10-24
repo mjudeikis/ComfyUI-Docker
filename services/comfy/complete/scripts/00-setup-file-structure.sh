@@ -18,7 +18,7 @@ mkdir -p /app/temp
 mkdir -p /app/user
 
 # Set proper permissions
-chown -R comfy:comfy /app/custom_nodes /app/input /app/models /app/output /app/temp /app/user
+#chown -R comfy:comfy /app/custom_nodes /app/input /app/models /app/output /app/temp /app/user
 
 log_success "Directory structure initialization completed"
 log_info "Directories ready for volume mounting:"
