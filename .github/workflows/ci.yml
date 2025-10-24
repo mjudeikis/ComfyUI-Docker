@@ -118,6 +118,7 @@ jobs:
         set: |
           *.cache-from=type=gha
           *.cache-to=type=gha,mode=max
+          REPOSITORY_OWNER=${{ github.repository_owner }}
         # Ensure proper authentication for multi-image builds
         provenance: false
         sbom: false

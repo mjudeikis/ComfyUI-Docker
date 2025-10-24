@@ -2,8 +2,12 @@
 // Supports multiple runtimes with proper caching and GitHub Container Registry
 
 // Variables with defaults
+variable "REPOSITORY_OWNER" {
+    default = "pixeloven"
+}
+
 variable "REGISTRY_URL" {
-    default = "ghcr.io/pixeloven/comfyui-docker/"
+    default = "ghcr.io/${REPOSITORY_OWNER}/comfyui-docker/"
 }
 
 variable "IMAGE_LABEL" {
