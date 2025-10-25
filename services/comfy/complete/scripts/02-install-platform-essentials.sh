@@ -19,4 +19,9 @@ install_custom_node_from_git "ComfyUI-Custom-Scripts" "https://github.com/python
 # @link: https://github.com/cubiq/ComfyUI_essentials
 install_custom_node_from_git "ComfyUI_essentials" "https://github.com/cubiq/ComfyUI_essentials.git"
 
+# comfyui-model-downloader
+# @description: Model downloader nodes for downloading models from Hugging Face and CivitAI directly in ComfyUI
+# @link: https://github.com/ciri/comfyui-model-downloader
+install_custom_node_from_git "comfyui-model-downloader" "https://github.com/ciri/comfyui-model-downloader.git"
+
 log_success "Platform essentials installation completed successfully" 
