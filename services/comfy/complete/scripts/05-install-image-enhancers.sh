@@ -24,4 +24,9 @@ install_custom_node_from_git "ComfyUI-RMBG" "https://github.com/1038lab/ComfyUI-
 # @link: https://github.com/huchenlei/ComfyUI-IC-Light
 install_custom_node_from_git "ComfyUI-IC-Light" "https://github.com/huchenlei/ComfyUI-IC-Light.git"
 
+# ComfyUI_LayerStyle
+# @description: Photoshop-like layer effects and advanced image processing nodes for compositing and editing
+# @link: https://github.com/chflame163/ComfyUI_LayerStyle
+install_custom_node_from_git "ComfyUI_LayerStyle" "https://github.com/chflame163/ComfyUI_LayerStyle.git"
+
 log_success "Image enhancers installation completed successfully" 

@@ -29,4 +29,9 @@ install_custom_node_from_git "ComfyUI-TeaCache" "https://github.com/welltop-cn/C
 # @link: https://github.com/ltdrdata/ComfyUI-Inspire-Pack
 install_custom_node_from_git "ComfyUI-Inspire-Pack" "https://github.com/ltdrdata/ComfyUI-Inspire-Pack.git"
 
+# ComfyUI-Easy-Use
+# @description: Comprehensive workflow simplification and integration pack that reduces complexity and optimizes multiple custom nodes
+# @link: https://github.com/yolain/ComfyUI-Easy-Use
+install_custom_node_from_git "ComfyUI-Easy-Use" "https://github.com/yolain/ComfyUI-Easy-Use.git"
+
 log_success "Workflow enhancers installation completed successfully" 
