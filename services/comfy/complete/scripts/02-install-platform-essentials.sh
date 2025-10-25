@@ -14,4 +14,9 @@ log_info "Starting platform essentials installation..."
 # @link: https://github.com/pythongosssss/ComfyUI-Custom-Scripts
 install_custom_node_from_git "ComfyUI-Custom-Scripts" "https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git"
 
+# ComfyUI_essentials
+# @description: Essential nodes that are widely used in ComfyUI workflows
+# @link: https://github.com/cubiq/ComfyUI_essentials
+install_custom_node_from_git "ComfyUI_essentials" "https://github.com/cubiq/ComfyUI_essentials.git"
+
 log_success "Platform essentials installation completed successfully" 
