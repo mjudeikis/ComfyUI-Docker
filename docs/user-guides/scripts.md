@@ -363,11 +363,12 @@ fi
 
 #### Permission Problems
 ```bash
-# Fix ownership of scripts
-sudo chown -R $USER:$USER scripts/
+# Containers run as standard comfy user for k8s compatibility
+# Use chmod for script permissions if needed
+chmod -R 755 scripts/
 
 # Verify container can access scripts
-docker compose exec comfy ls -la /home/comfy/app/scripts/
+docker compose exec core-cuda ls -la /app/scripts/
 ```
 
 #### Environment Variable Issues

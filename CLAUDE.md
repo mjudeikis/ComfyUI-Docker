@@ -24,8 +24,7 @@ COMFY_TEMP_PATH=/path/to/temp \
 COMFY_USER_PATH=/path/to/user \
 docker compose up -d
 
-# Custom ownership (if different from current user)
-PUID=1001 PGID=1001 docker compose up -d
+# All data paths use default ./data subdirectories
 ```
 
 **Required Data Structure:**
@@ -223,9 +222,7 @@ The project provides two mechanisms for rebuilding images with the latest depend
 ## Environment Variables
 
 ```bash
-# Docker Compose - Server & Setup Configuration
-PUID=1000                               # User ID for container ownership
-PGID=1000                               # Group ID for container ownership
+# Docker Compose - Server Configuration
 COMFY_PORT=8188                         # Web interface port
 
 # Docker Compose - Individual Path Configuration

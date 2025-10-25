@@ -9,9 +9,7 @@ Customize your ComfyUI Docker setup for optimal performance.
 # Port configuration
 COMFY_PORT=8188                    # Web interface port
 
-# User/Group IDs for file permissions
-PUID=1000                          # User ID
-PGID=1000                          # Group ID
+# User/Group IDs no longer configurable - runs as standard comfy user for k8s compatibility
 
 # Individual path configuration (used by current docker-compose.yml)
 COMFY_CUSTOM_NODE_PATH=./data/custom_nodes  # Custom nodes directory
@@ -235,10 +233,11 @@ logging:
 
 ### File Permissions
 ```bash
-# Set proper ownership
-sudo chown -R $USER:$USER ./data
+# Containers now run as standard comfy user (no custom UID/GID)
+# Host ownership is managed by Docker volume mounts
+# For k8s deployments, use securityContext to set runAsUser/runAsGroup
 
-# Secure permissions
+# Set directory permissions if needed
 chmod 755 ./data
 chmod -R 644 ./data/models/*
 ```

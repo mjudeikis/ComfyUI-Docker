@@ -285,8 +285,9 @@ docker system df
 
 **Permission issues**
 ```bash
-# Fix file ownership
-sudo chown -R $USER:$USER ./data
+# Containers run as standard comfy user for k8s compatibility
+# Use chmod for directory permissions if needed
+chmod 755 ./data
 
 # Check container user
 docker compose exec core-cuda id

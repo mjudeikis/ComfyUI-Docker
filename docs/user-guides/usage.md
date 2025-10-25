@@ -188,8 +188,10 @@ CLI_ARGS="--lowvram --preview-method none" docker compose up -d
 
 **Permission issues**
 ```bash
-# Fix file permissions
-sudo chown -R $USER:$USER ./data
+# Containers now run as standard comfy user for k8s compatibility
+# Host ownership handled by Docker volume mounts
+# Use chmod for directory permissions if needed
+chmod 755 ./data
 ```
 
 ### Logs & Diagnostics

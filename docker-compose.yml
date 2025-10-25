@@ -13,8 +13,6 @@
 # COMFY_PORT - Port to expose ComfyUI (default: 8188)
 # COMFY_IMAGE - Override default image
 # COMFY_DATA_PATH - Host path containing data subdirectories (default: ./data)
-# PUID - User ID for container ownership (default: 1000)
-# PGID - Group ID for container ownership (default: 1000)
 #
 # Volume Structure:
 # Each subdirectory is mounted directly to /app/[subdirectory]:
@@ -29,10 +27,7 @@ services:
   # Core GPU mode (--profile core, also default)F
   core-cuda:
     image: ${COMFY_IMAGE:-ghcr.io/pixeloven/comfyui-docker/core:cuda-latest}
-    user: ${PUID:-1000}:${PGID:-1000}
     environment:
-      - PUID=${PUID:-1000}
-      - PGID=${PGID:-1000}
       - COMFY_PORT=${COMFY_PORT:-8188}
       - CLI_ARGS=
       - NVIDIA_VISIBLE_DEVICES=all
@@ -60,10 +55,7 @@ services:
   # Complete GPU mode with all optimizations (--profile complete)
   complete-cuda:
     image: ${COMFY_IMAGE:-ghcr.io/pixeloven/comfyui-docker/complete:cuda-latest}
-    user: ${PUID:-1000}:${PGID:-1000}
     environment:
-      - PUID=${PUID:-1000}
-      - PGID=${PGID:-1000}
       - COMFY_PORT=${COMFY_PORT:-8188}
       - CLI_ARGS=
       - NVIDIA_VISIBLE_DEVICES=all
@@ -91,10 +83,7 @@ services:
   # CPU-only mode (--profile cpu)
   core-cpu:
     image: ${COMFY_IMAGE:-ghcr.io/pixeloven/comfyui-docker/core:cpu-latest}
-    user: ${PUID:-1000}:${PGID:-1000}
     environment:
-      - PUID=${PUID:-1000}
-      - PGID=${PGID:-1000}
       - COMFY_PORT=${COMFY_PORT:-8188}
       - CLI_ARGS=--cpu
     ports:

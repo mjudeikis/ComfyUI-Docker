@@ -1,15 +1,14 @@
 FROM runtime AS core
 
-# Remove ubuntu user
+# Remove ubuntu user and create standard comfy user for container
 # https://askubuntu.com/questions/1513927/ubuntu-24-04-docker-images-now-includes-user-ubuntu-with-uid-gid-1000
 RUN touch /var/mail/ubuntu && \
     chown ubuntu /var/mail/ubuntu && \
     userdel -r ubuntu
 
-ARG PUID=1000
-ARG PGID=1000
-RUN groupadd -g $PGID comfy && \
-    useradd -m -u $PUID -g $PGID comfy && \
+# Create standard non-root user (no fixed UID/GID for k8s compatibility)
+RUN groupadd comfy && \
+    useradd -m -g comfy comfy && \
     mkdir -p /app && \
     chown -R comfy:comfy /app
 
@@ -31,7 +30,7 @@ ENV PATH="$VENV_PATH/bin:$PATH"
 
 # Install ComfyUI to temp location and move to /app (standard Docker practice)
 ARG RUNTIME=cuda
-RUN --mount=type=cache,mode=0755,uid=1000,gid=1000,target=/home/comfy/.cache/pip \
+RUN --mount=type=cache,mode=0755,target=/home/comfy/.cache/pip \
   source $VENV_PATH/bin/activate && \
   pip install comfy-cli && \
   if [ "$RUNTIME" = "cuda" ]; then \
